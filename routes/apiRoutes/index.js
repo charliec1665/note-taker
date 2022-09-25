@@ -12,6 +12,8 @@ router.get('/api/notes', (req, res) => {
     // add it to db.json with unique id, and return new note to the client
 router.post('/api/notes', (req, res) => {
     req.body.id = db.length.toString();
+
+    // add data validation to return 400 error
 });
 
 module.exports = router;
