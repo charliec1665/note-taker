@@ -12,14 +12,15 @@ const PORT = process.env.PORT || 3001;
 // instantiate server
 const app = express();
 
-// instructs the app to use the public folder to acces front-end files
-app.use(express.static('public'));
-
 // MIDDLEWARE: functions mounted to server
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+
+// instructs the app to use the public folder to acces front-end files
+app.use(express.static('public'));
+// these routes need to be after the line above, since the routes talk to the public folder
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
