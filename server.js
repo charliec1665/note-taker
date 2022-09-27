@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3001;
 // instantiate server
 const app = express();
 
+// instructs the app to use the public folder to acces front-end files
+app.use(express.static('public'));
+
 // MIDDLEWARE: functions mounted to server
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -19,8 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
-// instructs the app to use the public folder to acces front-end files
-app.use(express.static('public'));
+
 
 // set the server up to listen using the listen() method, this should always be last
 app.listen(PORT, () => {
