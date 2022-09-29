@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(express.static('public'));
 // these routes need to be after the line above, since the routes talk to the public folder
 app.use('/api', apiRoutes);
+// html routes should be listed after api routes
 app.use('/', htmlRoutes);
 
 
