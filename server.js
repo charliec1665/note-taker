@@ -21,6 +21,7 @@ app.use(express.json());
 // instructs the app to use the public folder to acces front-end files
 app.use(express.static('public'));
 // these routes need to be after the line above, since the routes talk to the public folder
+// and when the '/api' is used in the route here, you WON'T need it in apiRoutes/index.js
 app.use('/api', apiRoutes);
 // html routes should be listed after api routes
 app.use('/', htmlRoutes);
